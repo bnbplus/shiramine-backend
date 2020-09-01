@@ -1,12 +1,29 @@
 # shiramine-backend
 
-クローンして最初に行うこと
+## クローンして最初に行うこと
+
+以下のコマンドを実行
+
 ```bash
 cd shiramine-backend
 npm install
 ```
 
+
+
+```text:.env
+DB_USERNAME="<mysqlのログインのユーザネーム>"
+DB_PASSWORD="<mysqlのログインのパスワード>"
+DB_DATABASE="<mysqlのデータベース名>"
+DB_HOST="<mysqlのホスト>"
+DB_PORT="<mysqlのポート>"
+DB_WEBSOCKET="<mysqlのWEBSOCKET(UNIXのみ)>"
+```
+
+
 ## Sequelize
+
+データベースがない場合に以下の手順で作成する。
 
 ### データベースの作成
 ```bash
@@ -18,6 +35,7 @@ node_modules/.bin/sequelize model:generate --name keyperson --attributes keypers
 ```
 ## マイグレーション
 ```bash
+# 以下はテーブル作成の手順なので先にDBを作成する必要がある
 node_modules/.bin/sequelize db:migrate
 ```
 
