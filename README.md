@@ -2,15 +2,13 @@
 
 ## クローンして最初に行うこと
 
-以下のコマンドを実行
-
+以下のコマンドを実行  
 ```bash
 cd shiramine-backend
 npm install
 ```
 
-
-
+shiramine-backend直下に`.env`ファイルを作成し以下を記述  
 ```text:.env
 DB_USERNAME="<mysqlのログインのユーザネーム>"
 DB_PASSWORD="<mysqlのログインのパスワード>"
