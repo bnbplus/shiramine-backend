@@ -16,6 +16,7 @@ DB_DATABASE="<mysqlのデータベース名>"
 DB_HOST="<mysqlのホスト>"
 DB_PORT="<mysqlのポート>"
 DB_WEBSOCKET="<mysqlのWEBSOCKET(UNIXのみ)>"
+JWT_SECRET="<jwtの秘密鍵>"
 ```
 
 ## API一覧
