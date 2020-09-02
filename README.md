@@ -18,6 +18,13 @@ DB_PORT="<mysqlのポート>"
 DB_WEBSOCKET="<mysqlのWEBSOCKET(UNIXのみ)>"
 ```
 
+## API一覧
+
+| 機能 | エンドポイント | 説明 |
+----|----|----
+| 動作確認 | / | GETメソッドでアクセスするとJSONが帰る
+| ログイン | /login | POSTメソッド(email,password)でアクセストークンを返す
+
 
 ## Sequelize
 
