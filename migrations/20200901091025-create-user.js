@@ -9,6 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER,
         comment: 'ユーザ固有のID'
       },
+      password: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        comment: 'ユーザのパスワード'
+      },
       email: {
         allowNull: false,
         type: Sequelize.STRING,

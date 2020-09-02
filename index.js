@@ -1,5 +1,7 @@
 const express = require('express')
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
+const models = require('./models/index.js')
 const config = require('./config/jwtConfig')
 const auth = require('./auth')
 
@@ -12,21 +14,59 @@ app.use(express.urlencoded({ extended: true }))
 const port = 3000
 
 app.get('/', (req, res) => {
+    
     return res.json({
+        success: true,
         message: 'This is the Shiramine API. You have successfully connected.',
     })
+
 })
 
-app.post('/login', (req, res) => {
+app.post('/login', async (req, res) => {
+
+    // email & password が存在しているか
+    if ( !req.body.email || !req.body.password ) {
+        return res.status(400).json({
+            success: false,
+            message: 'You have not sent an email address or password.'
+        })
+    }
+
+    // データベースにemialがあるか検出
+    const record　= await models.user.findOne({ where: { email: req.body.email } })
+    if (record === null) {
+        return res.status(400).json({
+            success: false,
+            message: 'Your email is incorrect.'
+        }) 
+    }
+
+    const userId = record.id
+    const userEmail = req.body.email
+    const userName = record.name
+    const userPassword = record.password
+
+    // パスワードがあっているか確認
+    if ( !bcrypt.compareSync( req.body.password, userPassword ) ) {
+        return res.status(400).json({
+            success: false,
+            message: 'Your password is incorrect.'
+        }) 
+    }
+    
+    // トークンの作成
     const payload = {
-        email: req.body.email
+        id: userId,
+        email: userEmail,
+        name: userName
     }
     const token = jwt.sign(payload, config.jwt.secret, config.jwt.options)
-    const body = {
-        email: req.body.email,
+    return res.json({
+        success: true,
+        message: `welcom to shiramine!, ${userName}!`,
         token: token
-    }
-    res.status(200).json(body)
+    })
+
 })
 
 app.get('/test', auth, (req, res) => {
