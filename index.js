@@ -52,6 +52,7 @@ app.post('/login', async (req, res) => {
     const userEmail = req.body.email
     const userName = record.name
     const userPassword = record.password
+    const userRole = record.role
 
     // パスワードがあっているか確認
     if ( !bcrypt.compareSync( req.body.password, userPassword ) ) {
@@ -65,7 +66,8 @@ app.post('/login', async (req, res) => {
     const payload = {
         id: userId,
         email: userEmail,
-        name: userName
+        name: userName,
+        role: userRole,
     }
     const token = jwt.sign(payload, config.jwt.secret, config.jwt.options)
     return res.json({
