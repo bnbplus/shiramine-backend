@@ -11,10 +11,17 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+// CORSを許可
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+    next()
+})
+
 const port = 3000
 
 app.get('/', (req, res) => {
-    
+
     return res.json({
         success: true,
         message: 'This is the Shiramine API. You have successfully connected.',
