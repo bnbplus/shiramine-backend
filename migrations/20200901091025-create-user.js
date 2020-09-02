@@ -9,6 +9,18 @@ module.exports = {
         type: Sequelize.INTEGER,
         comment: 'ユーザ固有のID'
       },
+      hash: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        unique: true,
+        comment: 'ユーザ固有のハッシュ値'
+      },
+      email: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        unique: true,
+        comment: 'ユーザ固有のメールアドレス'
+      },
       name: {
         allowNull: false,
         type: Sequelize.STRING,

@@ -15,6 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   user.init({
     name: DataTypes.STRING,
+    hash: DataTypes.STRING,
+    email: DataTypes.STRING,
     role: DataTypes.ENUM('traveller', 'admin', 'keyperson'),
     bleToken: DataTypes.STRING,
     bnbplusApiToken: DataTypes.STRING
