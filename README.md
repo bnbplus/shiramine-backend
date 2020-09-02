@@ -27,6 +27,44 @@ JWT_SECRET="<jwtの秘密鍵>"
 | ログイン | /login | POSTメソッド(email,password)でアクセストークンを返す
 
 
+## データベース
+
+### users
+| 名前 | 機能 | 型 | Null許容 | 
+----|----|----|----
+| id | 固有のキー | int(11) | NO |
+| password | パスワード | varchar(255) | NO |
+| email | メールアドレス | varchar(255) | NO |
+| name | ユーザの名前 | varchar(255) | NO |
+| role | 白峰BSにおける役割 | enum('traveller', 'admin', 'keyperson') | NO |
+| bleToken | BLEのUUID | varchar(255) | YES |
+| bnbplusApiToken | bnb+のoidcトークン | varchar(255) | YES |
+| createdAt | 生成時間 | datetime | NO |
+| updatedAt | 変更時間 | datetime | NO |
+
+### spots
+| 名前 | 機能 | 型 | Null許容 | 
+----|----|----|----
+| id | 固有のキー | int(11) | NO |
+| name | 場所名 | varchar(255) | NO |
+| gatewayId | BLEゲートウェイのUUID | varchar(255) | YES |
+| useFaceRecognition | その場所に顔認証 | tinyint(1) | NO |
+| latitude | 緯度 | float | YES |
+| longitude | 経度 | float | YES |
+| description | 場所について | text | YES | 
+| createdAt | 生成時間 | datetime | NO |
+| updatedAt | 変更時間 | datetime | NO |
+
+### keyperson
+| 名前 | 機能 | 型 | Null許容 | 
+----|----|----|----
+| id | 固有のキー | int(11) | NO |
+| keypersonId | 話を聞いたキーパーソンのID | int(11) | Yes |
+| talkUserId | 旅人のID | int(11) | Yes |
+| createdAt | 生成時間 | datetime | NO |
+| updatedAt | 変更時間 | datetime | NO |
+
+
 ## Sequelize
 
 データベースがない場合に以下の手順で作成する。
