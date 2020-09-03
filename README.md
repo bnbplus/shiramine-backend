@@ -27,6 +27,17 @@ JWT_SECRET="<jwtの秘密鍵>"
 | ログイン | /login | POSTメソッド(email,password)でアクセストークンを返す
 
 
+## ログインの流れ
+1. 白峰のサイトにアクセス
+2. bnb+でログインを押す
+3. bnb+のログインフォームに飛ぶ
+4. email,passwordでログイン
+5. 白峰のサイトに戻る(その際OIDCTokenを発行)
+6. そのOIDCTokenを用いて白峰のサイトにログイン
+8. API側はOIDCTokenからsubを取得それをDBに保持
+9. その後、白峰のサイトAPIがJWTを発行
+10. JWTをvuexに格納
+
 ## データベース
 
 ### users
