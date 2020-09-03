@@ -13,6 +13,8 @@ const userCreate = require('./routes/userCreate')
 
 require('dotenv').config()
 
+const port = 4000
+
 // expressの設定
 const app = express()
 app.use(express.json())
@@ -24,8 +26,6 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
     next()
 })
-
-const port = 3001
 
 /** 接続検証用 */
 app.get('/', index)

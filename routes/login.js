@@ -55,7 +55,8 @@ module.exports = async (req, res) => {
     return res.json({
         success: true,
         message: `welcom to shiramine!, ${userName}!`,
-        token: token
+        token: token,
+        role: userRole,
     })
 
 }
