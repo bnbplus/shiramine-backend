@@ -22,7 +22,7 @@ const run = async () => {
         password: '$2b$10$2yNdsk/1s8X.IzlL2UIBpujhKFfmrFad0x5q.9hCCXnsU2/d/QpOu',
         email: 'test1@shiramine.com',
         role: 'traveller',
-        bleToken: null,
+        bleToken: 'C42BB41E-C097-47AF-B431-2BBEEEC32745',
         bnbplusApiToken: null
     })
     await models.user.create({
@@ -38,7 +38,7 @@ const run = async () => {
         password: '$2b$10$AqBxsJrel8NXblwVJpHPVuLIA/koID1gIewIlu5Sqmo5HBtgvmtfa',
         email: 'test3@shiramine.com',
         role: 'traveller',
-        bleToken: null,
+        bleToken: 'F635AC04-CEB9-418C-A978-045935C05480',
         bnbplusApiToken: null
     })
     await models.user.create({
@@ -54,8 +54,24 @@ const run = async () => {
         password: '$2b$10$7gfWn4rs55TuetAaKLkzl.LURGVEVH5IAQtCBDouMkGfpRhTRPpem',
         email: 'test5@shiramine.com',
         role: 'keyperson',
-        bleToken: null,
+        bleToken: 'A321CDEC-7D39-419D-AF4C-19A7C2889DF4',
         bnbplusApiToken: null
+    })
+    await models.spot.create({
+        name: 'spot1',
+        gatewayId: '4FFA9FCF-D599-4169-9D75-22BA2C2A4200',
+        useFaceRecognition: false,
+        latitude: 36.1744794,
+        longitude: 136.6244694,
+        description: '説明説明説明説明説明説明説明説明説明\n説明説明説明説明説明説明説明説明説明\n説明説明説明説明説明説明説明説明説明'
+    })
+    await models.spot.create({
+        name: 'spot2',
+        gatewayId: '01966C76-8BCE-4AB5-9CA8-F31FB4B63B52',
+        useFaceRecognition: true,
+        latitude: 36.1744794,
+        longitude: 136.6244694,
+        description: '説明説明説明説明説明説明説明説明説明\n説明説明説明説明説明説明説明説明説明\n説明説明説明説明説明説明説明説明説明'
     })
 }
 run()

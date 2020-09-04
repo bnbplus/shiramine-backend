@@ -10,6 +10,8 @@ const login = require('./routes/login')
 const users = require('./routes/users')
 const user = require('./routes/user')
 const userCreate = require('./routes/userCreate')
+const userId = require('./routes/userId')
+const spots = require('./routes/spots')
 
 require('dotenv').config()
 
@@ -40,8 +42,15 @@ app.get('/users', auth, users)
 /** ユーザ本人の情報 */
 app.get('/user', auth, user)
 
-/** ユーザの作成 */
-app.post('/user/create', auth, userCreate)
+/** ユーザ本人の情報 */
+app.get('/user', auth, user)
+
+/** idユーザの閲覧 */
+app.get('/users/:id([0-9]+)', auth, userId)
+
+
+/** スポットの作成 */
+app.get('/spots', auth, spots)
 
 app.get('/test', auth, (req, res) => {
     return res.status(200).json({
