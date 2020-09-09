@@ -97,7 +97,7 @@ module.exports = async (req, res) => {
         await models.user.update(param, { where: { id: req.params.id } })
         return res.json({
             success: true,
-            message: 'database registration completed.'
+            message: 'database change completed.'
         })
     } catch ( err ) {
         return res.status(500).json({
