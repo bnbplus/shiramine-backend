@@ -73,5 +73,13 @@ const run = async () => {
         longitude: 136.6244694,
         description: '説明説明説明説明説明説明説明説明説明\n説明説明説明説明説明説明説明説明説明\n説明説明説明説明説明説明説明説明説明'
     })
+    await models.request.create({
+        userId: 0,
+        information: '初めてのお使い1'
+    })
+    await models.request.create({
+        userId: 2,
+        information: '初めてのお使い2'
+    })
 }
 run()
