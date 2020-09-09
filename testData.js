@@ -14,7 +14,7 @@ const run = async () => {
         password: '$2b$10$NDNlGBh4e97PnwFdRuOnPO8GaOfpeuiveZ1qMtVOFgkjLiwrJp15S',
         email: 'admin@shiramine.com',
         role: 'admin',
-        bleToken: null,
+        bleUuid: null,
         bnbplusApiToken: null
     })
     await models.user.create({
@@ -22,7 +22,7 @@ const run = async () => {
         password: '$2b$10$2yNdsk/1s8X.IzlL2UIBpujhKFfmrFad0x5q.9hCCXnsU2/d/QpOu',
         email: 'test1@shiramine.com',
         role: 'traveller',
-        bleToken: 'C42BB41E-C097-47AF-B431-2BBEEEC32745',
+        bleUuid: 'C42BB41E-C097-47AF-B431-2BBEEEC32745',
         bnbplusApiToken: null
     })
     await models.user.create({
@@ -30,32 +30,32 @@ const run = async () => {
         password: '$2b$10$OI/MC7LoV.5re4LwwjUgYOyYKW0YCKmPIL1dF4wvD5hm0YtLUn666',
         email: 'test2@shiramine.com',
         role: 'traveller',
-        bleToken: null,
-        bnbplusApiToken: null
+        bleUuid: null,
+        bnbplusSubject: null
     })
     await models.user.create({
         name: 'test3',
         password: '$2b$10$AqBxsJrel8NXblwVJpHPVuLIA/koID1gIewIlu5Sqmo5HBtgvmtfa',
         email: 'test3@shiramine.com',
         role: 'traveller',
-        bleToken: 'F635AC04-CEB9-418C-A978-045935C05480',
-        bnbplusApiToken: null
+        bleUuid: 'F635AC04-CEB9-418C-A978-045935C05480',
+        bnbplusSubject: null
     })
     await models.user.create({
         name: 'test4',
         password: '$2b$10$7gfWn4rs55TuetAaKLkzl.LURGVEVH5IAQtCBDouMkGfpRhTRPpem',
         email: 'test4@shiramine.com',
-        role: 'keyperson',
-        bleToken: null,
-        bnbplusApiToken: null
+        role: 'villager',
+        bleUuid: null,
+        bnbplusSubject: null
     })
     await models.user.create({
         name: 'test5',
         password: '$2b$10$7gfWn4rs55TuetAaKLkzl.LURGVEVH5IAQtCBDouMkGfpRhTRPpem',
         email: 'test5@shiramine.com',
-        role: 'keyperson',
-        bleToken: 'A321CDEC-7D39-419D-AF4C-19A7C2889DF4',
-        bnbplusApiToken: null
+        role: 'villager',
+        bleUuid: 'A321CDEC-7D39-419D-AF4C-19A7C2889DF4',
+        bnbplusSubject: null
     })
     await models.spot.create({
         name: 'spot1',

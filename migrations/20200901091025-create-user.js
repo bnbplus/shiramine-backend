@@ -28,18 +28,18 @@ module.exports = {
       role: {
         allowNull: false,
         type: Sequelize.ENUM,
-        values: ['traveller', 'admin', 'keyperson'],
-        comment: 'ユーザの立場(旅人,管理者,キーパーソン)'
+        values: ['traveller', 'admin', 'villager'],
+        comment: 'ユーザの立場(旅人,管理者,村人)'
       },
-      bleToken: {
+      bleUuid: {
         allowNull: true,
         type: Sequelize.STRING,
         comment: 'BLEタグのUUID'
       },
-      bnbplusApiToken: {
+      bnbplusSubject: {
         allowNull: true,
         type: Sequelize.STRING,
-        comment: 'bnb+のoidcトークン'
+        comment: 'bnb+のoidcのsub'
       },
       createdAt: {
         allowNull: false,
