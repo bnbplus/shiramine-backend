@@ -14,17 +14,17 @@ module.exports = {
         type: Sequelize.STRING,
         comment: '場所の名前'
       },
-      gatewayId: {
+      bleUuid: {
         allowNull: true,
         type: Sequelize.STRING,
         default: null,
         comment: 'BLEゲートウェイのUUID'
       },
-      useFaceRecognition: {
-        allowNull: false,
-        type: Sequelize.BOOLEAN,
-        default: false,
-        comment: '顔認証が使えるか否か'
+      bnbSub: {
+        allowNull: true,
+        type: Sequelize.STRING,
+        default: null,
+        comment: 'BLE+のsub'
       },
       latitude: {
         type: Sequelize.FLOAT,

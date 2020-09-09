@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   spot.init({
     name: DataTypes.STRING,
-    gatewayId: DataTypes.STRING,
-    useFaceRecognition: DataTypes.BOOLEAN,
+    bleUuid: DataTypes.STRING,
+    bnbSub: DataTypes.STRING,
     longitude: DataTypes.FLOAT,
     latitude: DataTypes.FLOAT,
     description: DataTypes.TEXT

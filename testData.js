@@ -59,16 +59,16 @@ const run = async () => {
     })
     await models.spot.create({
         name: 'spot1',
-        gatewayId: '4FFA9FCF-D599-4169-9D75-22BA2C2A4200',
-        useFaceRecognition: false,
+        bleUuid: '4FFA9FCF-D599-4169-9D75-22BA2C2A4200',
+        bnbSub: null,
         latitude: 36.1744794,
         longitude: 136.6244694,
         description: '説明説明説明説明説明説明説明説明説明\n説明説明説明説明説明説明説明説明説明\n説明説明説明説明説明説明説明説明説明'
     })
     await models.spot.create({
         name: 'spot2',
-        gatewayId: '01966C76-8BCE-4AB5-9CA8-F31FB4B63B52',
-        useFaceRecognition: true,
+        bleUuid: '01966C76-8BCE-4AB5-9CA8-F31FB4B63B52',
+        bnbSub: null,
         latitude: 36.1744794,
         longitude: 136.6244694,
         description: '説明説明説明説明説明説明説明説明説明\n説明説明説明説明説明説明説明説明説明\n説明説明説明説明説明説明説明説明説明'

@@ -14,8 +14,8 @@ module.exports = async (req, res) => {
     // フィールドが正しいか
     if ( 
         !req.body.name               ||
-        !req.body.gatewayId          ||
-        !req.body.useFaceRecognition ||
+        !req.body.bleUuid            ||
+        !req.body.bnbSub             ||
         !req.body.latitude           ||
         !req.body.longitude          ||
         !req.body.description
@@ -43,8 +43,8 @@ module.exports = async (req, res) => {
     }
 
     const name = req.body.name
-    const gatewayId = req.body.gatewayId
-    const useFaceRecognition = req.body.useFaceRecognition
+    const bleUuid = req.body.bleUuid
+    const bnbSub = req.body.bnbSub
     const latitude = req.body.latitude
     const longitude = req.body.longitude
     const description = req.body.description
@@ -52,8 +52,8 @@ module.exports = async (req, res) => {
     try {
         await models.spot.create({
             name,
-            gatewayId,
-            useFaceRecognition,
+            bleUuid,
+            bnbSub,
             latitude,
             longitude,
             description
