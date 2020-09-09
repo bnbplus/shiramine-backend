@@ -31,7 +31,7 @@ module.exports = async (req, res) => {
             name: c.name,
             email: c.email,
             role: c.role,
-            bleToken: c.bleToken,
+            bleUuid: c.bleUuid,
             createdAt: c.createdAt,
             updatedAt: c.updatedAt,
         }
