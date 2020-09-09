@@ -33,7 +33,7 @@ module.exports = async (req, res) => {
         name: record.name,
         email: record.email,
         role: record.role,
-        bleToken: record.bleToken,
+        bleUuid: record.bleUuid,
         createdAt: record.createdAt,
         updatedAt: record.updatedAt,
     }
