@@ -69,12 +69,12 @@ module.exports = async (req, res) => {
     switch (req.body.role) {
         case 'admin':
         case 'traveller':
-        case 'keyperson':
+        case 'villager':
             break
         default:
             return res.status(400).json({
                 success: false,
-                message: 'role is admin, traveller, keyperson only.'
+                message: 'role is admin, traveller, villager only.'
             })
     }
 
