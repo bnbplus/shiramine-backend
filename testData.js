@@ -15,7 +15,7 @@ const run = async () => {
         email: 'admin@shiramine.com',
         role: 'admin',
         bleUuid: null,
-        bnbplusApiToken: null
+        bnbplusSubject: null
     })
     await models.user.create({
         name: 'test1',
@@ -23,7 +23,7 @@ const run = async () => {
         email: 'test1@shiramine.com',
         role: 'traveller',
         bleUuid: 'C42BB41E-C097-47AF-B431-2BBEEEC32745',
-        bnbplusApiToken: null
+        bnbplusSubject: null
     })
     await models.user.create({
         name: 'test2',
