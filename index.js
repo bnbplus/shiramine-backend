@@ -14,9 +14,10 @@ const userId = require('./routes/userId')
 const userDeleteId = require('./routes/userDeleteId')
 const userEditId = require('./routes/userEditId')
 const spots = require('./routes/spots')
-const spotsCreate = require('./routes/spotCreate')
+const spotCreate = require('./routes/spotCreate')
+const spotDeleteId = require('./routes/spotDeleteId')
 const requests = require('./routes/requests')
-const requestDelete = require('./routes/requestDelete')
+const requestDeleteId = require('./routes/requestDeleteId')
 
 require('dotenv').config()
 
@@ -63,13 +64,16 @@ app.post('/user/edit/:id([0-9]+)', auth, userEditId)
 app.get('/spots', auth, spots)
 
 /** スポットの作成 */
-app.post('/spot/create', auth, spotsCreate)
+app.post('/spot/create', auth, spotCreate)
+
+/** スポットの削除 */
+app.get('/spot/delete/:id([0-9]+)', auth, spotDeleteId)
 
 /** 頼みごと一覧 */
-app.post('/requests', auth, requests)
+app.get('/requests', auth, requests)
 
 /** 頼みごとの削除 */
-app.post('/request/delete/:id([0-9]+)', auth, requestDelete)
+app.get('/request/delete/:id([0-9]+)', auth, requestDeleteId)
 
 app.get('/test', auth, (req, res) => {
     return res.status(200).json({
