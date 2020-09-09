@@ -69,7 +69,7 @@ app.post('/spot/create', auth, spotsCreate)
 app.post('/requests', auth, requests)
 
 /** 頼みごとの削除 */
-app.post('/requestDelete', auth, requestDelete)
+app.post('/request/delete/:id([0-9]+)', auth, requestDelete)
 
 app.get('/test', auth, (req, res) => {
     return res.status(200).json({
