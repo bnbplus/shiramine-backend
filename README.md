@@ -23,8 +23,13 @@ JWT_SECRET="<jwtの秘密鍵>"
 
 | 機能 | エンドポイント | 説明 |
 ----|----|----
-| 動作確認 | / | GETメソッドでアクセスするとJSONが帰る
-| ログイン | /login | POSTメソッド(email,password)でアクセストークンを返す
+| 動作確認 | / | GETメソッドでアクセスするとJSONが帰る |
+| ログイン | /login | POSTメソッド(email,password)でアクセストークンを返す |
+| ユーザ情報 | /user | ログイン状態でGETメソッドで自分の情報を返す |
+| ユーザ一覧 | /users | ログイン状態でGETメソッドでユーザの一覧を返す(adminのみ) |
+| ユーザ作成 | /user/create | ログイン状態でPOSTメソッド(name,email,password,role)でユーザを作成(adminのみ) |
+| ユーザ削除 | /user/delete/:id | ログイン状態でURLにユーザidを入れるとそのユーザが削除される(adminのみ) |
+ 
 
 
 ## ログインの流れ
