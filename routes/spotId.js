@@ -4,12 +4,7 @@ module.exports = async (req, res) => {
 
     let record = null
     try {
-        record　= await models.request.findOne({ 
-            raw: true,
-            where: { id: req.params.id } 
-        })
-        
-
+        record　= await models.spot.findOne({ where: { id: req.params.id } })
         if (record === null) {
             return res.status(400).json({
                 success: false,

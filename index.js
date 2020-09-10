@@ -70,6 +70,9 @@ app.get('/spots', auth, spots)
 /** スポットの作成 */
 app.post('/spot/create', auth, spotCreate)
 
+/** スポット固有の情報 */
+app.get('/spot/:id([0-9]+)', auth, request)
+
 /** スポットの編集 */
 app.post('/spot/edit/:id([0-9]+)', auth, spotEditId)
 
