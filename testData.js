@@ -85,5 +85,13 @@ const run = async () => {
         userId: 1,
         information: '初めてのお使い3'
     })
+    await models.request.create({
+        userId: 2,
+        information: '初めてのお使い4'
+    })
+    await models.request.create({
+        userId: 2,
+        information: '初めてのお使い5'
+    })
 }
 run()

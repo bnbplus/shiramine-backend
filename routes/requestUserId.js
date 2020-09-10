@@ -2,20 +2,12 @@ const models = require('../models/index')
 
 module.exports = async (req, res) => {
 
-    let record = null
+    let records = []
     try {
-        record　= await models.request.findAll({ 
+        records　= await models.request.findAll({ 
             raw: true,
-            where: { id: req.params.id } 
+            where: { userId: req.params.id } 
         })
-        
-
-        if (record === null) {
-            return res.status(400).json({
-                success: false,
-                message: 'your id is wrong'
-            }) 
-        }
     } catch (err) {
         // データベースの故障
         return res.status(500).json({
@@ -24,14 +16,8 @@ module.exports = async (req, res) => {
         })
     }
 
-    // 必要なデータのみ抽出
-    record = {
-        id: record.id,
-        information: record.information
-    }
-
     return res.status(200).json({
         success: true,
-        record: record
+        records
     })
 }
