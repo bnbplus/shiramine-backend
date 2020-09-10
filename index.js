@@ -18,6 +18,7 @@ const spotCreate = require('./routes/spotCreate')
 const spotDeleteId = require('./routes/spotDeleteId')
 const spotEditId = require('./routes/spotEditId')
 const requests = require('./routes/requests')
+const request = require('./routes/requestId')
 const requestEditId = require('./routes/requestEditId')
 const requestCreate = require('./routes/requestCreate')
 const requestDeleteId = require('./routes/requestDeleteId')
@@ -80,6 +81,10 @@ app.post('/request/create', auth, requestCreate)
 
 /** 頼みごと一覧 */
 app.get('/requests', auth, requests)
+
+/** ユーザごとの頼みごと */
+app.get('/request/:id([0-9]+)', auth, request)
+
 
 /** 頼みごとの編集 */
 app.post('/request/edit/:id([0-9]+)', auth, requestEditId)
