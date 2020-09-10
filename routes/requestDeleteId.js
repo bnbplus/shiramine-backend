@@ -2,14 +2,6 @@ const models = require('../models/index')
 
 module.exports = async (req, res) => {
 
-    // admin以外弾く
-    if ( req.jwtPayload.role != 'admin' ) {
-        return res.status(401).json({
-            success: false,
-            message: 'no access rights.'
-        })
-    }
-
     try {
         // データベースにemialがあるか検出
         await models.request.destroy({ where: { id: req.params.id } })
