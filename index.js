@@ -18,11 +18,8 @@ const spotCreate = require('./routes/spotCreate')
 const spotDeleteId = require('./routes/spotDeleteId')
 const spotEditId = require('./routes/spotEditId')
 const requests = require('./routes/requests')
-<<<<<<< HEAD
 const requestEditId = require('./routes/requestEditId')
-=======
 const requestCreate = require('./routes/requestCreate')
->>>>>>> 9fe8a8ba4a8420393027cea5b7dcff21cfbce863
 const requestDeleteId = require('./routes/requestDeleteId')
 
 require('dotenv').config()
