@@ -61,8 +61,8 @@ JWT_SECRET="<jwtの秘密鍵>"
 | email | メールアドレス | varchar(255) | NO |
 | name | ユーザの名前 | varchar(255) | NO |
 | role | 白峰BSにおける役割 | enum('traveller', 'admin', 'keyperson') | NO |
-| bleToken | BLEのUUID | varchar(255) | YES |
-| bnbplusApiToken | bnb+のoidcトークン | varchar(255) | YES |
+| bleUuid | BLEのUUID | varchar(255) | YES |
+| bnbplusSubject | bnb+のoidcのsub | varchar(255) | YES |
 | createdAt | 生成時間 | datetime | NO |
 | updatedAt | 変更時間 | datetime | NO |
 
