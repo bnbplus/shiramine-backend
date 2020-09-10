@@ -18,7 +18,11 @@ const spotCreate = require('./routes/spotCreate')
 const spotDeleteId = require('./routes/spotDeleteId')
 const spotEditId = require('./routes/spotEditId')
 const requests = require('./routes/requests')
+<<<<<<< HEAD
 const requestEditId = require('./routes/requestEditId')
+=======
+const requestCreate = require('./routes/requestCreate')
+>>>>>>> 9fe8a8ba4a8420393027cea5b7dcff21cfbce863
 const requestDeleteId = require('./routes/requestDeleteId')
 
 require('dotenv').config()
@@ -73,6 +77,9 @@ app.post('/spot/edit/:id([0-9]+)', auth, spotEditId)
 
 /** スポットの削除 */
 app.get('/spot/delete/:id([0-9]+)', auth, spotDeleteId)
+
+/** スポットの作成 */
+app.post('/request/create', auth, requestCreate)
 
 /** 頼みごと一覧 */
 app.get('/requests', auth, requests)
