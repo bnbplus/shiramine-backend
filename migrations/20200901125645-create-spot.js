@@ -24,7 +24,7 @@ module.exports = {
         allowNull: true,
         type: Sequelize.STRING,
         default: null,
-        comment: 'BLE+のsub'
+        comment: 'BNB+のsub'
       },
       latitude: {
         type: Sequelize.FLOAT,

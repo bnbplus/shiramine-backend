@@ -36,6 +36,7 @@ JWT_SECRET="<jwtの秘密鍵>"
 | 場所削除 | /spot/delete/:id | GET | 必須(adminのみ) | id(場所id)を送るとその場所が削除される |
 | 場所編集 | /spot/edit/:id | POST | 必須(adminのみ) | id(場所id)で指定した場所の情報を変更できる |
 | 頼みごと一覧 | /requests | GET | 不要 | 頼みごとの一覧を表示 |
+| ユーザごとの頼みごと | /request/:id | GET | 必須 | ユーザごとの頼みごとを表示 |
 | 頼みごと作成 | /request/create | POST | 必須 | userid,informationを送ると登録される |
 | 頼みごと削除 | /request/delete/:id | GET | 必須 | id(頼みごとid)を送るとその頼みごとが削除される |
 | 頼みごと編集 | /request/edit/:id | POST | 必須 | id(頼みごとid)を送るとその頼みごとが変更できる |
@@ -71,20 +72,18 @@ JWT_SECRET="<jwtの秘密鍵>"
 ----|----|----|----
 | id | 固有のキー | int(11) | NO |
 | name | 場所名 | varchar(255) | NO |
-| gatewayId | BLEゲートウェイのUUID | varchar(255) | YES |
-| useFaceRecognition | その場所に顔認証 | tinyint(1) | NO |
+| bleUuid | BLEゲートウェイのUUID | varchar(255) | YES |
+| bnbSub | BNB+のsub | tinyint(1) | NO |
 | latitude | 緯度 | float | YES |
 | longitude | 経度 | float | YES |
 | description | 場所について | text | YES | 
 | createdAt | 生成時間 | datetime | NO |
 | updatedAt | 変更時間 | datetime | NO |
 
-### keyperson
-| 名前 | 機能 | 型 | Null許容 | 
-----|----|----|----
+### request
 | id | 固有のキー | int(11) | NO |
-| keypersonId | 話を聞いたキーパーソンのID | int(11) | Yes |
-| talkUserId | 旅人のID | int(11) | Yes |
+| userId | ユーザのID | int(11) | NO |
+| information | 説明 | text | NO |
 | createdAt | 生成時間 | datetime | NO |
 | updatedAt | 変更時間 | datetime | NO |
 
