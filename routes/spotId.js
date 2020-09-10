@@ -26,7 +26,7 @@ module.exports = async (req, res) => {
     record = {
         id: record.id,
         name: record.name,
-        bleUuid: record.bleUuid,
+        bleuuid: record.bleuuid,
         latitude:　record.latitude,
         longitude: record.longitude,
         description: record.description

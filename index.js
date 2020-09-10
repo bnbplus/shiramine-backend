@@ -14,6 +14,7 @@ const userId = require('./routes/userId')
 const userDeleteId = require('./routes/userDeleteId')
 const userEditId = require('./routes/userEditId')
 const spots = require('./routes/spots')
+const spotId = require('./routes/spotId')
 const spotCreate = require('./routes/spotCreate')
 const spotDeleteId = require('./routes/spotDeleteId')
 const spotEditId = require('./routes/spotEditId')
@@ -71,7 +72,7 @@ app.get('/spots', auth, spots)
 app.post('/spot/create', auth, spotCreate)
 
 /** スポット固有の情報 */
-app.get('/spot/:id([0-9]+)', auth, request)
+app.get('/spot/:id([0-9]+)', auth, spotId)
 
 /** スポットの編集 */
 app.post('/spot/edit/:id([0-9]+)', auth, spotEditId)
