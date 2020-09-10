@@ -12,12 +12,8 @@ module.exports = async (req, res) => {
 
     // フィールドが正しいか
     if ( 
-        !req.body.name               ||
-        !req.body.bleUuid            ||
-        !req.body.bnbSub             ||
-        !req.body.latitude           ||
-        !req.body.longitude          ||
-        !req.body.description
+        !req.body.userid               ||
+        !req.body.information
     ) {
         return res.status(400).json({
             success: false,
@@ -26,36 +22,20 @@ module.exports = async (req, res) => {
     }
 
     // 名前の長さを判定
-    if ( req.body.name > 100 ) {
+    if ( req.body.infomation > 1000 ) {
         return res.status(400).json({
             success: false,
-            message: 'name is too long.'
+            message: 'information is too long.'
         })
     }
 
-    // 説明の長さの判定
-    if ( req.body.description > 1000 ) {
-        return res.status(400).json({
-            success: false,
-            message: 'name is too long.'
-        })
-    }
-
-    const name = req.body.name
-    const bleUuid = req.body.bleUuid
-    const bnbSub = req.body.bnbSub
-    const latitude = req.body.latitude
-    const longitude = req.body.longitude
-    const description = req.body.description
+    const userid = req.body.userid
+    const information = req.body.information
 
     try {
         await models.spot.create({
-            name,
-            bleUuid,
-            bnbSub,
-            latitude,
-            longitude,
-            description
+            userid,
+            information
         })
         return res.json({
             success: true,
