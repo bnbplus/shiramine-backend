@@ -21,16 +21,24 @@ JWT_SECRET="<jwtの秘密鍵>"
 
 ## API一覧
 
-| 機能 | エンドポイント | 説明 |
-----|----|----
-| 動作確認 | / | GETメソッドでアクセスするとJSONが帰る |
-| ログイン | /login | POSTメソッド(email,password)でアクセストークンを返す |
-| ユーザ情報 | /user | ログイン状態でGETメソッドで自分の情報を返す |
-| ユーザ一覧 | /users | ログイン状態でGETメソッドでユーザの一覧を返す(adminのみ) |
-| ユーザ作成 | /user/create | ログイン状態でPOSTメソッド(name,email,password,role)でユーザを作成(adminのみ) |
-| ユーザ削除 | /user/delete/:id | ログイン状態でURLにユーザidを入れるとそのユーザが削除される(adminのみ) |
- 
-
+| 機能 | エンドポイント | 通信 | ログイン | 説明 |
+----|----|----|----|----
+| 動作確認 | / | GET | 不要 | 接続テスト用 |
+| ログイン | /login | POST | 不要 | email,passwordを送るとログイン情報を送る |
+| ユーザ情報 | /user | GET | 必須 | 自分の情報を返す |
+| ユーザ情報 | /user/:id | GET | 必須(adminのみ) | ユーザ一人の情報を返す |
+| ユーザ一覧 | /users | GET | 必須(adminのみ) | 全ユーザの情報を返す |
+| ユーザ作成 | /user/create | POST | 必須(adminのみ) | name,email,password,roleを送ると登録される |
+| ユーザ削除 | /user/delete/:id | GET | 必須(adminのみ) | id(ユーザid)を送るとそのユーザが削除されます |
+| ユーザ編集 | /user/edit/:id | POST | 必須(adminのみ) | id(ユーザid)で指定したユーザのユーザ情報を変更できます |
+| 場所一覧 | /spots | GET | 不要 | 場所のリストを返す |
+| 場所作成 | /spot/create | POST | 必須(adminのみ) | name,bleUuid,bnbSub,latitude,longitude,descriptionを用いて場所を登録 |
+| 場所削除 | /spot/delete/:id | GET | 必須(adminのみ) | id(場所id)を送るとその場所が削除される |
+| 場所編集 | /spot/edit/:id | POST | 必須(adminのみ) | id(場所id)で指定した場所の情報を変更できる |
+| 頼みごと一覧 | /requests | GET | 不要 | 頼みごとの一覧を表示 |
+| 頼みごと作成 | /request/create | POST | 必須 | userid,informationを送ると登録される |
+| 頼みごと削除 | /request/delete/:id | GET | 必須 | id(頼みごとid)を送るとその頼みごとが削除される |
+| 頼みごと編集 | /request/edit/:id | POST | 必須 | id(頼みごとid)を送るとその頼みごとが変更できる |
 
 ## ログインの流れ
 1. 白峰のサイトにアクセス
