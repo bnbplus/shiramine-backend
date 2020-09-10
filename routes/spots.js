@@ -6,6 +6,7 @@ module.exports = async (req, res) => {
     try {
         records = await models.spot.findAll({
             raw: true,
+            
         })
     } catch (err) {
         // データベースの故障
