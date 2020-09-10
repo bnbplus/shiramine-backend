@@ -22,7 +22,11 @@ module.exports = async (req, res) => {
     // 必要なデータのみ抽出
     record = {
         id: record.id,
-        information: record.information
+        name: record.name,
+        bleuuid: record.bleuuid,
+        latitude:　record.latitude,
+        longitude: record.longitude,
+        description: record.description
     }
 
     return res.status(200).json({
