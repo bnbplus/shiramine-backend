@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
 
     let record = null
     try {
-        record　= await models.request.findOne({ 
+        record　= await models.request.findAll({ 
             raw: true,
             where: { id: req.params.id } 
         })
