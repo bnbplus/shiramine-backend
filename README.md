@@ -81,6 +81,8 @@ JWT_SECRET="<jwtの秘密鍵>"
 | updatedAt | 変更時間 | datetime | NO |
 
 ### request
+| 名前 | 機能 | 型 | Null許容 | 
+----|----|----|----
 | id | 固有のキー | int(11) | NO |
 | userId | ユーザのID | int(11) | NO |
 | information | 説明 | text | NO |

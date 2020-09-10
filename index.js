@@ -76,7 +76,7 @@ app.get('/spot/:id([0-9]+)', auth, spotId)
 
 /** スポットの編集 */
 app.post('/spot/edit/:id([0-9]+)', auth, spotEditId)
-
+        
 /** スポットの削除 */
 app.get('/spot/delete/:id([0-9]+)', auth, spotDeleteId)
 
@@ -88,7 +88,6 @@ app.get('/requests', auth, requests)
 
 /** ユーザごとの頼みごと */
 app.get('/request/user/:id([0-9]+)', auth, request)
-
 
 /** 頼みごとの編集 */
 app.post('/request/edit/:id([0-9]+)', auth, requestEditId)
