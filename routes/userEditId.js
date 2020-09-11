@@ -69,11 +69,12 @@ module.exports = async (req, res) => {
             case 'admin':
             case 'traveller':
             case 'villager':
+            case 'shop':
                 break
             default:
                 return res.status(400).json({
                     success: false,
-                    message: 'role is admin, traveller, villager only.'
+                    message: 'role is admin, traveller, villager, shop only.'
                 })
         }
         param['role'] = req.body.role

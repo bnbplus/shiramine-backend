@@ -28,8 +28,8 @@ module.exports = {
       role: {
         allowNull: false,
         type: Sequelize.ENUM,
-        values: ['traveller', 'admin', 'villager'],
-        comment: 'ユーザの立場(旅人,管理者,村人)'
+        values: ['traveller', 'admin', 'villager', 'shop'],
+        comment: 'ユーザの立場(旅人,管理者,村人,店舗)'
       },
       bleUuid: {
         allowNull: true,

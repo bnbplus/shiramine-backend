@@ -57,6 +57,22 @@ const run = async () => {
         bleUuid: 'A321CDEC-7D39-419D-AF4C-19A7C2889DF4',
         bnbplusSubject: null
     })
+    await models.user.create({
+        name: 'shop1',
+        password: '$2b$10$7gfWn4rs55TuetAaKLkzl.LURGVEVH5IAQtCBDouMkGfpRhTRPpem',
+        email: 'shop1@shiramine.com',
+        role: 'shop',
+        bleUuid: null,
+        bnbplusSubject: null
+    })
+    await models.user.create({
+        name: 'shop2',
+        password: '$2b$10$7gfWn4rs55TuetAaKLkzl.LURGVEVH5IAQtCBDouMkGfpRhTRPpem',
+        email: 'shop2@shiramine.com',
+        role: 'shop',
+        bleUuid: null,
+        bnbplusSubject: null
+    })
     await models.spot.create({
         name: 'spot1',
         bleUuid: '4FFA9FCF-D599-4169-9D75-22BA2C2A4200',
