@@ -42,60 +42,60 @@ app.use((req, res, next) => {
 })
 
 /** 接続検証用 */
-app.get('/', index)
+app.get('/api/', index)
 
 /** ログイン */
-app.post('/login', login)
+app.post('/api/login', login)
 
 /** ユーザの一覧 */
-app.get('/users', auth, users)
+app.get('/api/users', auth, users)
 
 /** idユーザの閲覧 */
-app.get('/user/:id([0-9]+)', auth, userId)
+app.get('/api/user/:id([0-9]+)', auth, userId)
 
 /** ユーザ本人の情報 */
-app.get('/user', auth, user)
+app.get('/api/user', auth, user)
 
 /** ユーザの作成 */
-app.post('/user/create', auth, userCreate)
+app.post('/api/user/create', auth, userCreate)
 
 /** ユーザの削除 */
-app.get('/user/delete/:id([0-9]+)', auth, userDeleteId)
+app.get('/api/user/delete/:id([0-9]+)', auth, userDeleteId)
 
 /** ユーザの編集 */
-app.post('/user/edit/:id([0-9]+)', auth, userEditId)
+app.post('/api/user/edit/:id([0-9]+)', auth, userEditId)
 
 /** スポットの作成 */
-app.get('/spots', auth, spots)
+app.get('/api/spots', auth, spots)
 
 /** スポットの作成 */
-app.post('/spot/create', auth, spotCreate)
+app.post('/api/spot/create', auth, spotCreate)
 
 /** スポット固有の情報 */
-app.get('/spot/:id([0-9]+)', auth, spotId)
+app.get('/api/spot/:id([0-9]+)', auth, spotId)
 
 /** スポットの編集 */
-app.post('/spot/edit/:id([0-9]+)', auth, spotEditId)
+app.post('/api/spot/edit/:id([0-9]+)', auth, spotEditId)
         
 /** スポットの削除 */
-app.get('/spot/delete/:id([0-9]+)', auth, spotDeleteId)
+app.get('/api/spot/delete/:id([0-9]+)', auth, spotDeleteId)
 
 /** スポットの作成 */
-app.post('/request/create', auth, requestCreate)
+app.post('/api/request/create', auth, requestCreate)
 
 /** 頼みごと一覧 */
-app.get('/requests', auth, requests)
+app.get('/api/requests', auth, requests)
 
 /** ユーザごとの頼みごと */
-app.get('/request/user/:id([0-9]+)', auth, request)
+app.get('/api/request/user/:id([0-9]+)', auth, request)
 
 /** 頼みごとの編集 */
-app.post('/request/edit/:id([0-9]+)', auth, requestEditId)
+app.post('/api/request/edit/:id([0-9]+)', auth, requestEditId)
 
 /** 頼みごとの削除 */
-app.get('/request/delete/:id([0-9]+)', auth, requestDeleteId)
+app.get('/api/request/delete/:id([0-9]+)', auth, requestDeleteId)
 
-app.get('/test', auth, (req, res) => {
+app.get('/api/test', auth, (req, res) => {
     return res.status(200).json({
       message: 'Hello!',
       authEmail: req.jwtPayload.email,
