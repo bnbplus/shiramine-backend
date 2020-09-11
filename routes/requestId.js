@@ -19,13 +19,6 @@ module.exports = async (req, res) => {
         })
     }
 
-    // 必要なデータのみ抽出
-    record = {
-        id: record.id,
-        userId: record.userId,
-        information: record.information
-    }
-
     return res.status(200).json({
         success: true,
         record: record
