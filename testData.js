@@ -63,7 +63,7 @@ const run = async () => {
         bnbSub: null,
         latitude: 36.1744794,
         longitude: 136.6244694,
-        description: '説明説明説明説明説明説明説明説明説明\n説明説明説明説明説明説明説明説明説明\n説明説明説明説明説明説明説明説明説明'
+        description: '場所①です'
     })
     await models.spot.create({
         name: 'spot2',
@@ -71,7 +71,7 @@ const run = async () => {
         bnbSub: null,
         latitude: 36.1744794,
         longitude: 136.6244694,
-        description: '説明説明説明説明説明説明説明説明説明\n説明説明説明説明説明説明説明説明説明\n説明説明説明説明説明説明説明説明説明'
+        description: '場所②です'
     })
     await models.request.create({
         userId: 1,
