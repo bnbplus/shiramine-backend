@@ -26,6 +26,10 @@ docker build -t shiramine-backend .
 docker run -d -p 4000:4000 shiramine-backend
 ```
 
+## サーバ構成
+
+![サーバ構成](./README/サーバ構成.png)
+
 ## API一覧
 
 | 機能 | エンドポイント | 通信 | ログイン | 説明 |
