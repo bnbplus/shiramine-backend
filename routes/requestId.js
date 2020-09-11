@@ -2,15 +2,10 @@ const models = require('../models/index')
 
 module.exports = async (req, res) => {
 
-    let records = null
+    let record = null
     try {
-        records　= await models.request.findAll({ 
-            raw: true,
-            where: { id: req.params.id } 
-        })
-        
-
-        if (records === null) {
+        record　= await models.request.findOne({ where: { id: req.params.id } })
+        if (record === null) {
             return res.status(400).json({
                 success: false,
                 message: 'your id is wrong'
@@ -25,14 +20,14 @@ module.exports = async (req, res) => {
     }
 
     // 必要なデータのみ抽出
-    records = {
-        id: records.id,
-        userId: records.userId,
-        information: records.information
+    record = {
+        id: record.id,
+        userId: record.userId,
+        information: record.information
     }
 
     return res.status(200).json({
         success: true,
-        records: records
+        record: record
     })
 }

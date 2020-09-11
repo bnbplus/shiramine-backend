@@ -2,14 +2,6 @@ const models = require('../models/index')
 
 module.exports = async (req, res) => {
 
-    // admin以外弾く
-    if ( req.jwtPayload.role != 'admin' ) { 
-        return res.status(401).json({
-            success: false,
-            message: 'no access rights.'
-        })
-    }
-
     let record = null
     try {
         record　= await models.user.findOne({ where: { id: req.params.id } })
