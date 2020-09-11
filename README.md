@@ -103,23 +103,13 @@ docker run -d -p 4000:4000 shiramine-backend
 
 ## Sequelize
 
-データベースがない場合に以下の手順で作成する。
-
-### データベースの作成
-```bash
-node_modules/.bin/sequelize model:generate --name user --attributes name:string,role:enum,bleToken:string,bnbplusApiToken:string
-
-node_modules/.bin/sequelize model:generate --name spot --attributes name:string,gatewayId:string,useFaceRecognition:boolean,longitude:float,latitude:float,description:text
-
-node_modules/.bin/sequelize model:generate --name keyperson --attributes keypersonId:integer,talkUserId:integer
-```
-## マイグレーション
+### マイグレーション
 ```bash
 # 以下はテーブル作成の手順なので先にDBを作成する必要がある
 node_modules/.bin/sequelize db:migrate
 ```
 
-## DB削除
+### DB削除
 ```bash
 # 内容だけではなくDB自体も消えるので注意
 node_modules/.bin/sequelize db:drop 
