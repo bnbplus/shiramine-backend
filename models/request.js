@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   request.init({
     userId: DataTypes.INTEGER,
-    information: DataTypes.TEXT
+    information: DataTypes.TEXT,
+    solutioner: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'request',

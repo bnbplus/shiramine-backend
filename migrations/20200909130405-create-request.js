@@ -6,24 +6,35 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        comment: '頼みごと固有のid'
       },
       userId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        comment: '頼んだ人のユーザID'
       },
       information: {
         allowNull: false,
         default: '',
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        comment: '頼む内容'
+      },
+      solutioner: {
+        allowNull: true,
+        default: null,
+        type: Sequelize.INTEGER,
+        comment: '頼みごとを解決した人のユーザID'
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        comment: '生成日'
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        comment: '変更日'
       }
     });
   },
