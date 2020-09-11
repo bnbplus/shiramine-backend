@@ -52,12 +52,8 @@ app.post('/api/login', login)
 app.get('/api/users', auth, users)
 
 /** idユーザの閲覧 */
-<<<<<<< HEAD
-app.get('/api/user/:id([0-9]+)', auth, userId)
-=======
 // FIXME: なんかうごかん
-app.get('/user/:id([0-9]+)', auth, userId)
->>>>>>> 05d0878a77e5bb3779536233be2cada8f0af99df
+app.get('/api/user/:id([0-9]+)', auth, userId)
 
 /** ユーザ本人の情報 */
 app.get('/api/user', auth, user)
@@ -90,20 +86,13 @@ app.get('/api/spot/delete/:id([0-9]+)', auth, spotDeleteId)
 app.post('/api/request/create', auth, requestCreate)
 
 /** 頼みごと一覧 */
-<<<<<<< HEAD
 app.get('/api/requests', auth, requests)
 
 /** ユーザごとの頼みごと */
-app.get('/api/request/user/:id([0-9]+)', auth, request)
-=======
-app.get('/requests', requests)
-
-/** ユーザごとの頼みごと */
-app.get('/request/user/:id([0-9]+)', auth, requestUserId)
+app.get('/api/request/user/:id([0-9]+)', auth, requestUserId)
 
 /** 頼みごと固有の情報 */
-app.get('/request/:id([0-9]+)', auth, requestId)
->>>>>>> 05d0878a77e5bb3779536233be2cada8f0af99df
+app.get('/api/request/:id([0-9]+)', auth, requestId)
 
 /** 頼みごとの編集 */
 app.post('/api/request/edit/:id([0-9]+)', auth, requestEditId)
