@@ -22,6 +22,7 @@ const requests = require('./routes/requests')
 const requestId = require('./routes/requestId')
 const requestUserId = require('./routes/requestUserId')
 const requestEditId = require('./routes/requestEditId')
+const requestDoneId = require('./routes/requestDoneId')
 const requestCreate = require('./routes/requestCreate')
 const requestCreateUserId = require('./routes/requestCreateUserId')
 const requestDeleteId = require('./routes/requestDeleteId')
@@ -90,7 +91,7 @@ app.post('/api/request/create', auth, requestCreate)
 app.post('/api/request/create/user/:id([0-9]+)', auth, requestCreateUserId)
 
 /** 頼みごと一覧 */
-app.get('/api/requests', auth, requests)
+app.get('/api/requests', requests)
 
 /** ユーザごとの頼みごと */
 app.get('/api/request/user/:id([0-9]+)', auth, requestUserId)
@@ -100,6 +101,9 @@ app.get('/api/request/:id([0-9]+)', auth, requestId)
 
 /** 頼みごとの編集 */
 app.post('/api/request/edit/:id([0-9]+)', auth, requestEditId)
+
+/** 頼みごとの編集 */
+app.post('/api/request/done/:id([0-9]+)', auth, requestDoneId)
 
 /** 頼みごとの削除 */
 app.get('/api/request/delete/:id([0-9]+)', auth, requestDeleteId)
