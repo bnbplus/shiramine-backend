@@ -75,23 +75,28 @@ const run = async () => {
     })
     await models.request.create({
         userId: 1,
-        information: '初めてのお使い1'
+        information: '初めてのお使い1',
+        solutioner: 2
     })
     await models.request.create({
         userId: 3,
-        information: '初めてのお使い2'
+        information: '初めてのお使い2',
+        solutioner: 1
     })
     await models.request.create({
         userId: 1,
-        information: '初めてのお使い3'
+        information: '初めてのお使い3',
+        solutioner: null
     })
     await models.request.create({
         userId: 2,
-        information: '初めてのお使い4'
+        information: '初めてのお使い4',
+        solutioner: null
     })
     await models.request.create({
         userId: 2,
-        information: '初めてのお使い5'
+        information: '初めてのお使い5',
+        solutioner: null
     })
 }
 run()
