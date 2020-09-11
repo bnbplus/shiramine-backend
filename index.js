@@ -23,6 +23,7 @@ const requestId = require('./routes/requestId')
 const requestUserId = require('./routes/requestUserId')
 const requestEditId = require('./routes/requestEditId')
 const requestCreate = require('./routes/requestCreate')
+const requestCreateUserId = require('./routes/requestCreateUserId')
 const requestDeleteId = require('./routes/requestDeleteId')
 
 require('dotenv').config()
@@ -84,6 +85,9 @@ app.get('/api/spot/delete/:id([0-9]+)', auth, spotDeleteId)
 
 /** スポットの作成 */
 app.post('/api/request/create', auth, requestCreate)
+
+/** スポットの作成(URLでユーザIDを取得) */
+app.post('/api/request/create/user/:id([0-9]+)', auth, requestCreateUserId)
 
 /** 頼みごと一覧 */
 app.get('/api/requests', auth, requests)

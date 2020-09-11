@@ -2,17 +2,9 @@ const models = require('../models/index')
 
 module.exports = async (req, res) => {
 
-    // admin以外弾く
-    if ( req.jwtPayload.role != 'admin' ) { 
-        return res.status(401).json({
-            success: false,
-            message: 'no access rights.'
-        })
-    }
-
     // フィールドが正しいか
     if ( 
-        !req.body.userid               ||
+        !req.params.id            ||
         !req.body.information
     ) {
         return res.status(400).json({
@@ -29,7 +21,7 @@ module.exports = async (req, res) => {
         })
     }
 
-    const userId = req.body.userid
+    const userId = req.params.id
     const information = req.body.information
 
     try {
