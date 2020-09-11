@@ -6,7 +6,8 @@ module.exports = async (req, res) => {
 
     // {
     //     userId: number || null,
-    //     information: string || null
+    //     information: string || null,
+    //     solutioner: number || null
     // }
 
     if ( !!req.body.userId ) {
@@ -21,6 +22,10 @@ module.exports = async (req, res) => {
             })
         }
         param['information'] = req.body.information
+    }
+
+    if ( !!req.body.solutioner ) {
+        param['solutioner'] = req.body.solutioner
     }
 
     try {
