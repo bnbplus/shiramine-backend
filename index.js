@@ -19,7 +19,8 @@ const spotCreate = require('./routes/spotCreate')
 const spotDeleteId = require('./routes/spotDeleteId')
 const spotEditId = require('./routes/spotEditId')
 const requests = require('./routes/requests')
-const request = require('./routes/requestUserId')
+const requestId = require('./routes/requestId')
+const requestUserId = require('./routes/requestUserId')
 const requestEditId = require('./routes/requestEditId')
 const requestCreate = require('./routes/requestCreate')
 const requestDeleteId = require('./routes/requestDeleteId')
@@ -51,6 +52,7 @@ app.post('/login', login)
 app.get('/users', auth, users)
 
 /** idユーザの閲覧 */
+// FIXME: なんかうごかん
 app.get('/user/:id([0-9]+)', auth, userId)
 
 /** ユーザ本人の情報 */
@@ -65,7 +67,7 @@ app.get('/user/delete/:id([0-9]+)', auth, userDeleteId)
 /** ユーザの編集 */
 app.post('/user/edit/:id([0-9]+)', auth, userEditId)
 
-/** スポットの作成 */
+/** スポットの一覧 */
 app.get('/spots', auth, spots)
 
 /** スポットの作成 */
@@ -84,10 +86,13 @@ app.get('/spot/delete/:id([0-9]+)', auth, spotDeleteId)
 app.post('/request/create', auth, requestCreate)
 
 /** 頼みごと一覧 */
-app.get('/requests', auth, requests)
+app.get('/requests', requests)
 
 /** ユーザごとの頼みごと */
-app.get('/request/user/:id([0-9]+)', auth, request)
+app.get('/request/user/:id([0-9]+)', auth, requestUserId)
+
+/** 頼みごと固有の情報 */
+app.get('/request/:id([0-9]+)', auth, requestId)
 
 /** 頼みごとの編集 */
 app.post('/request/edit/:id([0-9]+)', auth, requestEditId)
