@@ -97,6 +97,7 @@ docker run -d -p 4000:4000 shiramine-backend
 | id | 固有のキー | int(11) | NO |
 | userId | ユーザのID | int(11) | NO |
 | information | 説明 | text | NO |
+| solutioner | 解決者(ユーザID) | int(11) | YES | 
 | createdAt | 生成時間 | datetime | NO |
 | updatedAt | 変更時間 | datetime | NO |
 
