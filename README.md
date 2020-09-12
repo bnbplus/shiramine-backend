@@ -72,7 +72,7 @@ docker run -d -p 4000:4000 shiramine-backend
 | password | パスワード | varchar(255) | NO |
 | email | メールアドレス | varchar(255) | NO |
 | name | ユーザの名前 | varchar(255) | NO |
-| role | 白峰BSにおける役割 | enum('traveller', 'admin', 'keyperson') | NO |
+| role | 白峰BSにおける役割 | enum('traveller', 'admin', 'keyperson', 'shop') | NO |
 | bleUuid | BLEのUUID | varchar(255) | YES |
 | bnbplusSubject | bnb+のoidcのsub | varchar(255) | YES |
 | createdAt | 生成時間 | datetime | NO |
