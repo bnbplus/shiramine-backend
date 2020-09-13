@@ -4,19 +4,15 @@ module.exports = async (req, res) => {
 
     let param = {}
 
-    if ( !!req.body.id ) {
-        param['id'] = req.body.id
+    if ( !req.body.solutioner ) {
+        return res.status(400).json({
+            success: false,
+            message: 'wrong input field.'
+        })
     }
+    param['solutioner'] = req.body.solutioner
 
-    if ( !!req.body.solutioner ) {
-        if ( req.body.solutioner.length > 50 ) {
-            return res.status(400).json({
-                success: false,
-                message: 'information is too long.'
-            })
-        }
-        param['solutioner'] = req.body.solutioner
-    }
+
 
     try {
         console.log(param);
