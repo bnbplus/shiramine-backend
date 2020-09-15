@@ -1,10 +1,9 @@
 var AWSIoTData = require("aws-iot-device-sdk")
 var AWS = require("aws-sdk")
 var AWSConfiguration = require("./aws-configuration")
-
+const jwt = require("jwt-decode")
 class Mqttdata {
   constructor() {
-
     this.awsCognitoPoolId = AWSConfiguration.poolId;
     this.awsRegion = AWSConfiguration.region;
     this.awsEndPoint = AWSConfiguration.host;
@@ -38,6 +37,7 @@ class Mqttdata {
   mqttClientMessageHandler(topic, payload) {
     console.log("MQTT Client RECEIVING MESSAGE");
     console.log("From topic = " + topic);
+    jwt(payload.token)
     console.log("Payload = " + payload.toString());
   }
   mqttClientCloseHandler() {
@@ -70,9 +70,8 @@ class Mqttdata {
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
       IdentityPoolId: this.awsCognitoPoolId
     });
-    AWS.config.getCredentials(err => {
+    AWS.config.credentials.get(err => {
       if (!err) {
-        console.log(AWS.config.credentials.data.Credentials)
         if (!this.mqttClient) {
           this.initMQTTClient(AWS.config.credentials.data.Credentials);
         } else {
