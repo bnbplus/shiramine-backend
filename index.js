@@ -102,7 +102,7 @@ app.get('/api/request/:id([0-9]+)', auth, requestId)
 /** 頼みごとの編集 */
 app.post('/api/request/edit/:id([0-9]+)', auth, requestEditId)
 
-/** 頼みごとの編集 */
+/** 頼みごとの完了 */
 app.post('/api/request/done/:id([0-9]+)', auth, requestDoneId)
 
 /** 頼みごとの削除 */
