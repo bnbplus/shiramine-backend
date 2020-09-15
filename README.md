@@ -43,14 +43,18 @@ docker run -d -p 4000:4000 shiramine-backend
 | ユーザ削除 | /user/delete/:id | GET | 必須(adminのみ) | id(ユーザid)を送るとそのユーザが削除されます |
 | ユーザ編集 | /user/edit/:id | POST | 必須(adminのみ) | id(ユーザid)で指定したユーザのユーザ情報を変更できます |
 | 場所一覧 | /spots | GET | 不要 | 場所のリストを返す |
+| 場所情報 | /spot/:id | GET | 必須(adminのみ) | ユーザ一人の情報を返す |
 | 場所作成 | /spot/create | POST | 必須(adminのみ) | name,bleUuid,bnbSub,latitude,longitude,descriptionを用いて場所を登録 |
 | 場所削除 | /spot/delete/:id | GET | 必須(adminのみ) | id(場所id)を送るとその場所が削除される |
 | 場所編集 | /spot/edit/:id | POST | 必須(adminのみ) | id(場所id)で指定した場所の情報を変更できる |
 | 頼みごと一覧 | /requests | GET | 不要 | 頼みごとの一覧を表示 |
+| 頼みごと情報 | /request/:id | GET | 必須 | 頼みごとの情報を表示 |
 | ユーザごとの頼みごと | /request/:id | GET | 必須 | ユーザごとの頼みごとを表示 |
 | 頼みごと作成 | /request/create | POST | 必須 | userid,informationを送ると登録される |
+| 頼みごと作成 | /request/create/user/:id | POST | 必須 | userid,informationを送ると登録される(userIdはパラーメータで指定) |
 | 頼みごと削除 | /request/delete/:id | GET | 必須 | id(頼みごとid)を送るとその頼みごとが削除される |
 | 頼みごと編集 | /request/edit/:id | POST | 必須 | id(頼みごとid)を送るとその頼みごとが変更できる |
+| 頼みごと完了 | /request/done/:id | POST | 必須 | id(頼みごとid)を送るとその頼みごとを行った人を登録できる |
 
 ## ログインの流れ
 1. 白峰のサイトにアクセス
