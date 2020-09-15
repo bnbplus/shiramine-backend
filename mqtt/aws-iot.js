@@ -11,19 +11,7 @@ class Mqttdata {
     this.connectIoT();
     this.mqttClient = null;
     this.clientId = "";
-    this.mqttClientStatus= "DISCONNECTED";
-    this.AWSObj = AWS;
-    this.AWSPoolId= AWSConfiguration.poolId
-    this.topic= null;
-    this.receivedMessage= []
-    this.message= "";
-    this.isIoTConnected= false;
-    this.requestMsg= "";
-    this.subscribedTopic= [];
-    this.publishResponse= {
-      msg: "",
-      status: "success"
-    }
+    this.topic = null;
   }
   getRandomClientId() {
     return "demo" + Math.floor(Math.random() * 100000 + 1);
@@ -37,7 +25,7 @@ class Mqttdata {
   mqttClientMessageHandler(topic, payload) {
     console.log("MQTT Client RECEIVING MESSAGE");
     console.log("From topic = " + topic);
-    jwt(payload.token)
+    jwt(payload.token) // decode token, we can add token to DB,...
     console.log("Payload = " + payload.toString());
   }
   mqttClientCloseHandler() {
@@ -60,26 +48,25 @@ class Mqttdata {
     this.mqttClient = null;
   }
   connectIoT() {
-    // this.disconnectIoT();
     this.getAWSIdentity();
   }
   async getAWSIdentity() {
-    // Update region
     AWS.config.region = this.awsRegion;
-    // Update credentials
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
       IdentityPoolId: this.awsCognitoPoolId
     });
     AWS.config.credentials.get(err => {
-      if (!err) {
-        if (!this.mqttClient) {
-          this.initMQTTClient(AWS.config.credentials.data.Credentials);
-        } else {
-          this.updateMQTTCredentials(AWS.config.credentials.data.Credentials);
-        }
-        this.subscribeTopic(AWSConfiguration.topicRegister);
+      if (err) {
+        console.log(err)
       } else {
-        console.log(err.message);
+        if (AWS.config.credentials.data) {
+          if (!this.mqttClient) {
+            this.initMQTTClient(AWS.config.credentials.data.Credentials);
+          } else {
+            this.updateMQTTCredentials(AWS.config.credentials.data.Credentials);
+          }
+          this.subscribeTopic(AWSConfiguration.topicRegister);
+        }
       }
     });
   }
@@ -136,26 +123,6 @@ class Mqttdata {
       });
     } else {
       alert("Please input topic");
-    }
-  }
-  publishMessage() {
-    if (this.message) {
-      this.mqttClient.publish(this.topic, this.message, null, err => {
-        if (!err) {
-          this.$set(
-            this.publishResponse,
-            "msg",
-            "Message is published successfully"
-          );
-          this.$set(this.publishResponse, "status", "success");
-        } else {
-          this.$set(this.publishResponse, "msg", err.message);
-          this.$set(this.publishResponse, "status", "danger");
-        }
-      });
-      this.message = "";
-    } else {
-      alert("Please input message");
     }
   }
 };
