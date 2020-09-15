@@ -26,7 +26,9 @@ const requestDoneId = require('./routes/requestDoneId')
 const requestCreate = require('./routes/requestCreate')
 const requestCreateUserId = require('./routes/requestCreateUserId')
 const requestDeleteId = require('./routes/requestDeleteId')
-
+const { Iot } = require('aws-sdk')
+const mqttaws =require("./mqtt/aws-iot")
+const mqttdata = new mqttaws();
 require('dotenv').config()
 
 const port = 4000
@@ -116,3 +118,5 @@ app.get('/api/test', auth, (req, res) => {
 })
 
 app.listen( port, _ => console.log(`Listening on port ${port}`) )
+mqttdata.getAWSIdentity()
+// mqttdata.subscribeTopic()
