@@ -8,7 +8,6 @@ class Mqttdata {
     this.awsRegion = AWSConfiguration.region;
     this.awsEndPoint = AWSConfiguration.host;
 
-    this.connectIoT();
     this.mqttClient = null;
     this.clientId = "";
     this.topic = null;
@@ -59,14 +58,12 @@ class Mqttdata {
       if (err) {
         console.log(err)
       } else {
-        if (AWS.config.credentials.data) {
-          if (!this.mqttClient) {
-            this.initMQTTClient(AWS.config.credentials.data.Credentials);
-          } else {
-            this.updateMQTTCredentials(AWS.config.credentials.data.Credentials);
-          }
-          this.subscribeTopic(AWSConfiguration.topicRegister);
+        if (!this.mqttClient) {
+          this.initMQTTClient(AWS.config.credentials.data.Credentials);
+        } else {
+          this.updateMQTTCredentials(AWS.config.credentials.data.Credentials);
         }
+        this.subscribeTopic(AWSConfiguration.topicRegister);
       }
     });
   }
