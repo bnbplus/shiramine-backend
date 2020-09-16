@@ -10,7 +10,7 @@ module.exports = {
         comment: 'ユーザ固有のID'
       },
       email: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING,
         unique: true,
         comment: 'ユーザ固有のメールアドレス'
