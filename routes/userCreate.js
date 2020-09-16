@@ -4,13 +4,13 @@ const emailValidator = require("email-validator")
 
 module.exports = async (req, res) => {
 
-    // admin以外弾く
-    if ( req.jwtPayload.role != 'admin' ) { 
-        return res.status(401).json({
-            success: false,
-            message: 'no access rights.'
-        })
-    }
+    // // admin以外弾く
+    // if ( req.jwtPayload.role != 'admin' ) { 
+    //     return res.status(401).json({
+    //         success: false,
+    //         message: 'no access rights.'
+    //     })
+    // }
 
     // 全てのフィールドがあるか確認
     if (

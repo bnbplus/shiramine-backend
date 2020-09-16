@@ -65,7 +65,7 @@ app.get('/api/userid/:id([0-9]+)', auth, userId)
 app.get('/api/user', auth, user)
 
 /** ユーザの作成 */
-app.post('/api/user/create', auth, userCreate)
+app.post('/api/user/create', userCreate)
 
 /** ユーザの削除 */
 app.get('/api/user/delete/:id([0-9]+)', auth, userDeleteId)
