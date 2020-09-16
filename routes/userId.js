@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
 
     let record = null
     try {
-        record　= await models.user.findOne({ where: { id: req.params.id } })
+        record = await models.user.findOne({ where: { id: req.params.id } })
         if (record === null) {
             return res.status(400).json({
                 success: false,
@@ -19,19 +19,8 @@ module.exports = async (req, res) => {
         })
     }
 
-    // 必要なデータのみ抽出
-    record = {
-        id: record.id,
-        name: record.name,
-        email: record.email,
-        role: record.role,
-        bleUuid: record.bleUuid,
-        createdAt: record.createdAt,
-        updatedAt: record.updatedAt,
-    }
-
     return res.status(200).json({
         success: true,
-        record: record
+        record: record,
     })
 }

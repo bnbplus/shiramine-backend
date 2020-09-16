@@ -25,7 +25,8 @@ module.exports = async (req, res) => {
         name: record.name,
         email: record.email,
         role: record.role,
-        bleUuid: record.bleUuid,
+        bnbplusSubject: record.bnbplusSubject,
+        bleNumber: record.bleNumber,
         createdAt: record.createdAt,
         updatedAt: record.updatedAt,
     }

@@ -9,11 +9,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         comment: 'ユーザ固有のID'
       },
-      password: {
-        allowNull: false,
-        type: Sequelize.STRING,
-        comment: 'ユーザのパスワード'
-      },
       email: {
         allowNull: false,
         type: Sequelize.STRING,
@@ -31,13 +26,13 @@ module.exports = {
         values: ['traveller', 'admin', 'villager', 'shop'],
         comment: 'ユーザの立場(旅人,管理者,村人,店舗)'
       },
-      bleUuid: {
+      bleNumber: {
         allowNull: true,
-        type: Sequelize.STRING,
-        comment: 'BLEタグのUUID'
+        type: Sequelize.INTEGER,
+        comment: 'BLEタグの番号'
       },
       bnbplusSubject: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.STRING,
         comment: 'bnb+のoidcのsub'
       },

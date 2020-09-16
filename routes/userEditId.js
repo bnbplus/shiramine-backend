@@ -11,9 +11,8 @@ module.exports = async (req, res) => {
     // {
     //     name: string || null,
     //     email: string || null,
-    //     password: string || null,
     //     role: string || null,
-    //     bleUuid: string || null,
+    //     bleNumber: string || null,
     //     bnbplusSubject: string || null,
     // }
 
@@ -46,24 +45,6 @@ module.exports = async (req, res) => {
         param['email'] = req.body.email
     }
 
-    if ( !!req.body.password ) {
-        // パスワードの最長文字数制限
-        if ( req.body.password > 200 ) {
-            return res.status(400).json({
-                success: false,
-                message: 'password is too long.'
-            })
-        }
-        // パスワード短すぎはよくない
-        if ( req.body.password <= 3 ) {
-            return res.status(400).json({
-                success: false,
-                message: 'password is too short.'
-            })
-        }
-        param['password'] = bcrypt.hashSync(req.body.password, 10)
-    }
-
     if ( !!req.body.role ) {
         switch (req.body.role) {
             case 'admin':
@@ -80,8 +61,8 @@ module.exports = async (req, res) => {
         param['role'] = req.body.role
     }
 
-    if ( !!req.body.bleUuid ) {
-        param['bleUuid'] = req.body.bleUuid
+    if ( !!req.body.bleNumber ) {
+        param['bleNumber'] = req.body.bleNumber
     }
 
     if ( !!req.body.bnbplusSubject ) {

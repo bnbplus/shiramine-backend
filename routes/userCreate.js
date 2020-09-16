@@ -14,9 +14,9 @@ module.exports = async (req, res) => {
 
     // 全てのフィールドがあるか確認
     if (
-        !req.body.name     ||
-        !req.body.email    ||
-        !req.body.password ||
+        !req.body.name           ||
+        !req.body.email          ||
+        !req.body.bnbplusSubject ||
         !req.body.role
     ) {
         return res.status(400).json({
@@ -41,27 +41,18 @@ module.exports = async (req, res) => {
         })
     }
 
-    // パスワードの最長文字数制限
-    if ( req.body.password > 200 ) {
-        return res.status(400).json({
-            success: false,
-            message: 'password is too long.'
-        })
-    }
-
-    // パスワード短すぎはよくない
-    if ( req.body.password <= 3 ) {
-        return res.status(400).json({
-            success: false,
-            message: 'password is too short.'
-        })
-    }
-
     // メルアドのフォーマットの確認
     if ( !emailValidator.validate(req.body.email) ) {
         return res.status(400).json({
             success: false,
             message: 'email format is different.'
+        })
+    }
+
+    if ( req.body.bnbplusSubject.length !== 36 ) {
+        return res.status(400).json({
+            success: false,
+            message: 'bnbplusSubject is too long or too short.'
         })
     }
 
@@ -79,35 +70,12 @@ module.exports = async (req, res) => {
             })
     }
 
-    let record = null
-    try {
-        // データベースにemialがあるか検出
-        record　= await models.user.findOne({ where: { email: req.body.email } })
-        console.log(record　);
-        if ( !!record ) {
-            return res.status(400).json({
-                success: false,
-                message: 'email is not unique.'
-            })
-        }
-    } catch (err) {
-        return res.status(500).json({
-            success: false,
-            message: 'database is corrupted.'
-        })
-    }
-
-    const userName = req.body.name
-    const userEmail = req.body.email
-    const userPassword = bcrypt.hashSync(req.body.password, 10)
-    const userRole = req.body.role
-
     try {
         await models.user.create({
-            name: userName, 
-            email: userEmail,
-            password: userPassword,
-            role: userRole
+            name: req.body.name,
+            email: req.body.email,
+            bnbplusSubject: req.body.bnbplusSubject,
+            role: req.body.role,
         })
         return res.json({
             success: true,

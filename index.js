@@ -55,7 +55,10 @@ app.get('/api/users', auth, users)
 
 /** idユーザの閲覧 */
 // FIXME: なんかうごかん
-app.get('/api/user/:id([0-9]+)', auth, userId)
+app.get('/api/userid/:id([0-9]+)', auth, userId)
+
+// https://shiraminebs.ga/api/user/subs
+// [“sub1”, “sub2”, “sub3”, “sub3”]
 
 /** ユーザ本人の情報 */
 app.get('/api/user', auth, user)
