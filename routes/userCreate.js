@@ -15,7 +15,8 @@ module.exports = async (req, res) => {
     // 全てのフィールドがあるか確認
     if (
         !req.body.name           ||
-        !req.body.email          ||
+        // TODO: bnbからemailを取得する方法を質問する
+        // !req.body.email       || 
         !req.body.bnbplusSubject ||
         !req.body.role
     ) {
