@@ -34,21 +34,21 @@ module.exports = async (req, res) => {
         })
     }
 
-    // メルアドの長さで弾く
-    if ( req.body.email.length > 200 ) {
-        return res.status(400).json({
-            success: false,
-            message: 'email is too long.'
-        })
-    }
+    // // メルアドの長さで弾く
+    // if ( req.body.email.length > 200 ) {
+    //     return res.status(400).json({
+    //         success: false,
+    //         message: 'email is too long.'
+    //     })
+    // }
 
-    // メルアドのフォーマットの確認
-    if ( !emailValidator.validate(req.body.email) ) {
-        return res.status(400).json({
-            success: false,
-            message: 'email format is different.'
-        })
-    }
+    // // メルアドのフォーマットの確認
+    // if ( !emailValidator.validate(req.body.email) ) {
+    //     return res.status(400).json({
+    //         success: false,
+    //         message: 'email format is different.'
+    //     })
+    // }
 
     if ( req.body.bnbplusSubject.length !== 36 ) {
         return res.status(400).json({
@@ -74,7 +74,7 @@ module.exports = async (req, res) => {
     try {
         await models.user.create({
             name: req.body.name,
-            email: req.body.email,
+            // email: req.body.email,
             bnbplusSubject: req.body.bnbplusSubject,
             role: req.body.role,
         })
