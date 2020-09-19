@@ -5,7 +5,7 @@ module.exports = {
       secret: process.env.JWT_SECRET,
       options: {
         algorithm: 'HS256',
-        expiresIn: '10m'
+        expiresIn: '96h'
       }
     }
   }  
